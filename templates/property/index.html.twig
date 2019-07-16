@@ -3,9 +3,26 @@
 {% block title 'Module Achat' %}
 
 {% block body %}
-    <div class="jumbotron">
         <div class="container">
             <h1>Achter vos biens</h1>
+            <div class="row">
+                {% for property in properties %}
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="{{ path('property.show', {id: property.id, slug: property.slug}) }}">{{ property.title }}</a>
+                                </h5>
+                                <p class="card-text">{{  property.city }} {{  property.codePostal }}</p>
+                                <p class="card-text">{{  property.description }}</p>
+                                <p class="card-text">{{  property.formattedPrice }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="navigation">
+                {{ knp_pagination_render(properties) }}
+            </div>
         </div>
-    </div>
 {% endblock body %}
