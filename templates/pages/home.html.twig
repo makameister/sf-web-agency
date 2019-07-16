@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Agence Web' %}
+
+{% block body %}
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Bienvenue</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Les dernies biens</h2>
+        <div class="row flex">
+            {% for property in properties %}
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="{{ path('property.show', {id: property.id, slug: property.slug}) }}">{{ property.title }}</a>
+                            </h5>
+                            <p class="card-text">{{  property.city }} {{  property.city }}</p>
+                            <p class="card-text">{{  property.formattedPrice }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock body %}

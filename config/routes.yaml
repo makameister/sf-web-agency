@@ -3,7 +3,7 @@ home:
   controller: App\Controller\HomeController::index
 
 property.index:
-  path: /property
+  path: /buy
   controller: App\Controller\PropertyController::index
 
 #index:
