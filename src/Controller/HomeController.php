@@ -5,11 +5,15 @@ namespace App\Controller;
 use App\Repository\PropertyRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Routing\Annotation\Route;
 
 Class HomeController extends AbstractController
 {
     /**
+     * @Route("/home", name="home")
+     *
      * @param PropertyRepository $repository
+     *
      * @return Response
      */
     public function index(PropertyRepository $repository) : Response

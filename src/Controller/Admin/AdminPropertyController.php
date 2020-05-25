@@ -3,7 +3,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Property;
 use App\Repository\PropertyRepository;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 //use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,16 +18,16 @@ Class AdminPropertyController extends AbstractController
     private $repository;
 
     /**
-     * @var ObjectManager
+     * @var EntityManagerInterface
      */
     private $manager;
 
     /**
      * AdminPropertyController constructor.
      * @param PropertyRepository $repository
-     * @param ObjectManager $manager
+     * @param EntityManagerInterface $manager
      */
-    public function __construct(PropertyRepository $repository, ObjectManager $manager)
+    public function __construct(PropertyRepository $repository, EntityManagerInterface $manager)
     {
         $this->repository = $repository;
         $this->manager = $manager;

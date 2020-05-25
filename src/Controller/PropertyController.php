@@ -2,7 +2,7 @@
 namespace App\Controller;
 
 use App\Repository\PropertyRepository;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,11 +17,11 @@ class PropertyController extends AbstractController
      */
     private $repository;
     /**
-     * @var ObjectManager
+     * @var EntityManagerInterface
      */
     private $manager;
 
-    public function __construct(PropertyRepository $repository, ObjectManager $manager)
+    public function __construct(PropertyRepository $repository, EntityManagerInterface $manager)
     {
         $this->repository = $repository;
         $this->manager = $manager;
@@ -48,6 +48,7 @@ class PropertyController extends AbstractController
     /**
      * @Route("/buy/{slug}-{id}", name="property.show", requirements={"slug": "[a-z0-9\-]*" })
      * @param Property $property
+     * @param string $slug
      * @return Response
      */
     public function show(Property $property, string $slug) : Response

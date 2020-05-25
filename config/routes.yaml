@@ -1,6 +1,10 @@
-home:
-  path: /
-  controller: App\Controller\HomeController::index
+#index:
+#  path: /
+#  controller: App\Controller\HomeController::index
+
+#home:
+#    path: /home
+#    controller: App\Controller\HomeController::index
 
 property.index:
   path: /buy
@@ -32,7 +36,3 @@ login:
 logout:
   path: /logout
 
-
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
